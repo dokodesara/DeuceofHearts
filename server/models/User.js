@@ -8,6 +8,15 @@ const userSchema = new Schema({
     unique: true,
     trim: true,
   },
+  DOB: {
+    type: String,
+    required: true,
+  },
+  // add checking for age requirement
+  Gender: {
+    type: String,
+    required: true,
+  },
   email: {
     type: String,
     required: true,
@@ -23,6 +32,12 @@ const userSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: 'Thought',
+    },
+  ],
+  friends: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
     },
   ],
 });
