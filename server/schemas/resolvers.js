@@ -74,7 +74,7 @@ const resolvers = {
         { new: true }
       );
     },
-    addFriend: async (parent, { username, friendId}) => {
+    addFriend: async (parent, { username, friendId } ) => {
         return User.findOneAndUpdate(
             { username },
             { $addToSet: { friends: friendId } },

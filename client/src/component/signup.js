@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
+import Select from "react-validation/build/select";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import AuthService from "../services/auth.service";
@@ -14,10 +15,20 @@ const required = (value) => {
   }
 };
 const validEmail = (value) => {
-  if (!isEmail(value)) {
+  if (!isDate(value)) {
     return (
       <div className="invalid-feedback d-block">
         This is not a valid email.
+      </div>
+    );
+  }
+};
+const validDOB = (value) => {
+  if (!isEmail(value)) {
+    // TODO: make this check the actual date. This just checks that it is a date
+    return (
+      <div className="invalid-feedback d-block">
+        Users must be 16 or older.
       </div>
     );
   }
@@ -33,47 +44,53 @@ const vusername = (value) => {
 };
 const vpassword = (value) => {
   if (value.length < 6 || value.length > 40) {
-    return ( <div className="invalid-feedback d-block">
-    The password must be between 6 and 40 characters.
-  </div>
-);
-}
+    return (<div className="invalid-feedback d-block">
+      The password must be between 6 and 40 characters.
+    </div>
+    );
+  }
 };
 const Register = (props) => {
-const form = useRef();
-const checkBtn = useRef();
-const [username, setUsername] = useState("");
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
-const [successful, setSuccessful] = useState(false);
-const [message, setMessage] = useState("");
-const onChangeUsername = (e) => {
-const username = e.target.value;
-setUsername(username);
-};
-const onChangeEmail = (e) => {
-const email = e.target.value;
-setEmail(email);  };
-const onChangePassword = (e) => {
-  const password = e.target.value;
-  setPassword(password);
-};
-const handleRegister = (e) => {
-  e.preventDefault();
-  setMessage("");
-  setSuccessful(false);
-  form.current.validateAll();
-  if (checkBtn.current.context._errors.length === 0) {
-    AuthService.register(username, email, password).then(
-      (response) => {
-        setMessage(response.data.message);
-        setSuccessful(true);
-      },
-      (error) => {
-        const resMessage =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) || error.message ||
+  const form = useRef();
+  const checkBtn = useRef();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [dob, setDOB] = useState("");
+  const [password, setPassword] = useState("");
+  const [successful, setSuccessful] = useState(false);
+  const [message, setMessage] = useState("");
+  const onChangeUsername = (e) => {
+    const username = e.target.value;
+    setUsername(username);
+  };
+  const onChangeEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+  };
+  const onChangeDOB = (e) => {
+    const dob = e.target.value;
+    setDOB(dob);
+  };
+  const onChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
+  const handleRegister = (e) => {
+    e.preventDefault();
+    setMessage("");
+    setSuccessful(false);
+    form.current.validateAll();
+    if (checkBtn.current.context._errors.length === 0) {
+      AuthService.register(username, email, password).then(
+        (response) => {
+          setMessage(response.data.message);
+          setSuccessful(true);
+        },
+        (error) => {
+          const resMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) || error.message ||
             error.toString();
           setMessage(resMessage);
           setSuccessful(false);
@@ -113,6 +130,26 @@ const handleRegister = (e) => {
                   validations={[required, validEmail]}
                 />
               </div>
+              <div className="form-group">
+                <label htmlFor="DOB">Date of Birth</label>
+                <Input
+                  type="text"
+                  className="form-control"
+                  name="DOB"
+                  value={dob}
+                  onChange={onChangeDOB}
+                  validations={[required, validDOB]}
+                />
+              </div>
+              <div className="form-group">
+                {/* <label htmlFor="gender">Gender</label> */}
+                <Select name='gender' value='' validations={[required]}>
+                  <option value=''>Gender</option>
+                  <option value='1'>F</option>
+                  <option value='2'>M</option>
+                  <option value='3'>N</option>
+                </Select>
+              </div>
               <div className="form-group"> <label htmlFor="password">Password</label>
                 <Input
                   type="password"
@@ -133,16 +170,16 @@ const handleRegister = (e) => {
               <div
                 className={
                   successful ? "alert alert-success" : "alert alert-danger"
-                }  role="alert"
-                >
-                  {message}
-                </div>
+                } role="alert"
+              >
+                {message}
               </div>
-            )}
-            <CheckButton style={{ display: "none" }} ref={checkBtn} />
-          </Form>
-        </div>
+            </div>
+          )}
+          <CheckButton style={{ display: "none" }} ref={checkBtn} />
+        </Form>
       </div>
-    );
-  };
-  export default Register;
+    </div>
+  );
+};
+export default Register;
