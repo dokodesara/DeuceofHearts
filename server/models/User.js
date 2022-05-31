@@ -1,6 +1,12 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+// const sixteenAgo = () => {
+//   return new Date()
+//   // how do write 16 years ago
+//   // Moment.js?
+// }
+
 const userSchema = new Schema({
   username: {
     type: String,
@@ -9,7 +15,11 @@ const userSchema = new Schema({
     trim: true,
   },
   DOB: {
-    type: String,
+    type: Date,
+    // validate: {
+    //   validator: function (input) { return new Date(input) && new Date(input) <= sixteenAgo },
+    //   message: 'Users must be 16 or older'
+    // },
     required: true,
   },
   // add checking for age requirement

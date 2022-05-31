@@ -41,7 +41,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, DOB: String!, Gender: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addThought(thoughtText: String!): Thought
+    addThought(thoughtText: String!, thoughtAuthor: String!): Thought
     addComment(
       thoughtId: ID!
       commentText: String!
@@ -49,6 +49,7 @@ const typeDefs = gql`
     ): Thought
     removeThought(thoughtId: ID!): Thought
     removeComment(thoughtId: ID!, commentId: ID!): Thought
+    addFriend(username: String!, friendId: ID!) Auth
   }
 `;
 
