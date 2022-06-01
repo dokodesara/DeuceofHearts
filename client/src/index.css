@@ -11,7 +11,7 @@
 }
 body{
   text-align: center;
-  background: linear-gradient(45deg,rgb(68, 5, 122),rgb(241, 70, 70));
+  background: linear-gradient(45deg,rgb(89, 5, 163),rgb(241, 70, 70));
   color:white;
 }
 
@@ -27,6 +27,11 @@ body{
   border-radius: 10%;
   overflow: hidden;
   margin-top: -6px;
+}
+.ui.inverted.violet.button{
+  height:fit-content;
+ margin-left:80%;
+
 }
 
 /*------------------Home page---------------------*/

@@ -1,5 +1,5 @@
 
-const backGround=new URL("../images/picture2.png",import.meta.url)
+const backGround=new URL("../images/picture1.png",import.meta.url)
 
 const Home = () => {
     return(
