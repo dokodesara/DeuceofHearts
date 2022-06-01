@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Button, Segment } from 'semantic-ui-react'
 
 
 
@@ -16,13 +16,13 @@ const Navbar = () => {
 
 
             </div>
-            <div><h3>Deuce of Hearts</h3></div></div>
+            <div><h3>Deuce of Hearts</h3></div>
+            </div>
 
+            <Button basic inverted color='violet'>
+                Login
+      </Button>
 
-          <ul id="nav-mobile" className="right">
-            <li>Login</li>
-            <li>Signup</li>
-          </ul>
         </div>
       </nav>
 
