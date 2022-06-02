@@ -18,7 +18,8 @@ const typeDefs = gql`
     createdAt: String
     comments: [Comment]!
   }
-  type Friend{
+
+  type Friend {
     _id:ID
     name :String
     gender:String
