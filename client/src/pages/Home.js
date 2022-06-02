@@ -1,4 +1,4 @@
-
+import React from 'react';
 const backGround=new URL("../images/picture1.png",import.meta.url)
 
 const Home = () => {

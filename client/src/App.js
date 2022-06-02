@@ -1,17 +1,19 @@
-import Home from './pages/Home'
-import Dashboard from './pages/Dashboard'
-import OnBoarding from './pages/OnBoarding'
-import Navbar from './component/Navbar'
-import { setContext } from "@apollo/client/link/context";
+import React from 'react';
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Home from './pages/Home'
+import Dashboard from './pages/Dashboard'
+import OnBoarding from './pages/OnBoarding'
+import Navbar from './components/Navbar'
 
 
-import { BrowserRouter,Routes,Route } from 'react-router-dom'
 //getting images through URL constructor which are not in public folder
 //const backGround=new URL("./images/picture2.png",import.meta.url)
 const httpLink = createHttpLink({
@@ -35,28 +37,28 @@ const client = new ApolloClient({
 });
 
 
-const  App=()=> {
+const App = () => {
   return (
-   
-    <div >
-      <Navbar/>
-    
-      <BrowserRouter>
-      <Routes>
-        <Route exact path={"/"} element ={<Home/>}/>
-        <Route path={"/dashboard"} element ={<Dashboard/>}/>
-        <Route path={"/onboarding"} element ={<OnBoarding/>}/>
-        <Route 
-            path='*'
-            element={<h1 className='display-2'>Wrong page!</h1>}
-          />
-            
-       
-      </Routes>
-      
-      </BrowserRouter>
-    </div>
-    
+    <ApolloProvider client={client}>
+      <Router>
+        <div >
+          <Navbar />
+
+
+          <Routes>
+            <Route path={"/"} element={<Home />} />
+            <Route path={"/dashboard"} element={<Dashboard />} />
+            <Route path={"/onboarding"} element={<OnBoarding />} />
+            <Route
+              path='*'
+              element={<h1 className='display-2'>Wrong page!</h1>}
+            />
+
+
+          </Routes>
+        </div>
+      </Router>
+    </ApolloProvider>
   );
 }
 
