@@ -18,6 +18,11 @@ const typeDefs = gql`
     createdAt: String
     comments: [Comment]!
   }
+  type Friend{
+    _id:ID
+    name :String
+    gender:String
+  }
 
   type Comment {
     _id: ID
@@ -49,7 +54,7 @@ const typeDefs = gql`
     ): Thought
     removeThought(thoughtId: ID!): Thought
     removeComment(thoughtId: ID!, commentId: ID!): Thought
-    addFriend(username: String!, friendId: ID!) Auth
+    addFriend(username: String!, friendId: ID!) :Auth   
   }
 `;
 
