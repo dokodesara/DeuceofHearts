@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import OnBoarding from './pages/OnBoarding'
 import Header from './component/Header'
+import Footer from './component/Footer'
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
@@ -62,8 +63,10 @@ const  App=()=> {
             
        
       </Routes>
-      </div>
       
+      </div>
+        
+      <Footer/>  
       </BrowserRouter>
  
     </ApolloProvider>
