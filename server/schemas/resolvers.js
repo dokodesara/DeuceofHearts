@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
+const { User, Thought, Message } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -81,6 +81,16 @@ const resolvers = {
         );
     },
     //check addFriend for mistakes
+    sendMessage: async (parent, { messageText, to, from }) => {
+      const message = await Message.create({ messageText, to, from });
+
+      await User.findOneAndUpdate(
+        { username: to },
+        { $addToSet: { messages: message._id },},
+      );
+
+      return message;
+    },
   },
 };
 
