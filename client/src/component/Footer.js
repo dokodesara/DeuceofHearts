@@ -1,23 +1,26 @@
 import React from 'react';
 
 
-var style = {
-  backgroundColor: "#F8F8F8",
+const style = {
+ footer:
+ {
+   backgroundColor: "#F8F8F8",
   borderTop: "1px solid #E7E7E7",
   textAlign: "center",
   padding: "20px",
-  position: "fixed",
-  left: "0",
-  bottom: "0",
+  position:"fixed",
+  left: 0,
+  bottom: 0,
   height: "120px",
   width: "100%",
+},
 };
 
 const Footer = () => {
 
   return (
     
-    <div style={style}>
+    <div style={style.footer}>
 
 
       <div className="ui inverted  grey vertical footer segment">
