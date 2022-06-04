@@ -5,16 +5,15 @@ const Home = () => {
     return(
         <>
           <div className="home-class">
-           <div className="class_backGround">
-              <img src={backGround}/>
+           <div container="class_backGround">
+              <img src={backGround} width="500" height="650"/>
          </div>
      
      
          <div className="class_home">
             
             <h1>Swipe Right@</h1>
-            <button className="class_button">Get Started</button>
-                  
+                            
             </div>
             
       
