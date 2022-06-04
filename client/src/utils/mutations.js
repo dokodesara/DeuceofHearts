@@ -63,6 +63,18 @@ export const ADD_COMMENT = gql`
   }
 `;
 
+export const SEND_MESSAGE = gql`
+  mutation sendMessage($messageText: String!, $to: String!, $from: String!) {
+    sendMessage(messageText: $messageText, to: $to, from: $from) {
+      _id
+      messageText
+      to
+      from
+      createdAt
+    }
+  }
+`;
+
 // from here down is probably wrong
 export const REMOVE_THOUGHT = gql`
   mutation removeThought($thoughtId: ID!) {

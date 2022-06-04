@@ -8,6 +8,7 @@ const typeDefs = gql`
     Gender: String
     email: String
     friends: [Friend]!
+    messages: [Message]!
     thoughts: [Thought]!
   }
   
@@ -18,16 +19,25 @@ const typeDefs = gql`
     createdAt: String
     comments: [Comment]!
   }
-  type Friend{
-    _id:ID
-    name :String
-    gender:String
+
+  type Friend {
+    _id: ID
+    name: String
+    gender: String
   }
 
   type Comment {
     _id: ID
     commentText: String
     commentAuthor: String
+    createdAt: String
+  }
+
+  type Message {
+    _id: ID
+    messageText: String
+    from: String
+    to: String
     createdAt: String
   }
 
@@ -54,7 +64,8 @@ const typeDefs = gql`
     ): Thought
     removeThought(thoughtId: ID!): Thought
     removeComment(thoughtId: ID!, commentId: ID!): Thought
-    addFriend(username: String!, friendId: ID!) :Auth   
+    addFriend(username: String!, friendId: ID!): Auth
+    sendMessage(messageText: String!, to: String!, from: String!): Message   
   }
 `;
 

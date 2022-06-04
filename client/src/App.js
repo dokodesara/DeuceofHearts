@@ -1,4 +1,15 @@
+
 import React from 'react'
+
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import OnBoarding from './pages/OnBoarding'
@@ -8,15 +19,8 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 
 import { setContext } from "@apollo/client/link/context";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from "@apollo/client";
 
 
-import { BrowserRouter,Routes,Route } from 'react-router-dom'
 //getting images through URL constructor which are not in public folder
 //const backGround=new URL("./images/picture2.png",import.meta.url)
 const httpLink = createHttpLink({
@@ -41,12 +45,12 @@ const client = new ApolloClient({
 });
 
 
-const  App=()=> {
+const App = () => {
   return (
     <ApolloProvider client={client}>
     
     
-      <BrowserRouter>
+      <Router>
       <div>
         <Header/>
      
@@ -67,8 +71,7 @@ const  App=()=> {
       </div>
         
       <Footer/>  
-      </BrowserRouter>
- 
+      </Router>
     </ApolloProvider>
   );
 }
