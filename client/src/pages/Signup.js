@@ -46,7 +46,7 @@ const Signup = () => {
             <div className="col-12 col-lg-10">
                 <div className="card">
                     <Header as="h2" textAlign="center">
-                        Signin
+                        SignUp
                     </Header>
 
                     <div className="card-body">
@@ -61,9 +61,9 @@ const Signup = () => {
                             <Grid centered columns={2}>
                                 <Grid.Column>
                                     <Segment>
-                                        <Form size="large" onSubmit={handleFormSubmit}>
+                                        <Form size="small" onSubmit={handleFormSubmit}>
                                             <Message>
-                                                <Message.Header>Rules n regulations</Message.Header>
+                                                <Message.Header>Rules and Regulations</Message.Header>
                                                 <p>
                                                     explicit/overly personal content is for private conversations and boundaries must be maintained. Harassment will not be tolerated
                                                 </p>
@@ -95,36 +95,16 @@ const Signup = () => {
                                                     onChange={handleChange} />
                                             </Form.Field>
 
-                                            {/* <Form.Group inline> */}
-                                                <Form.Field>
-                                                    <label>Gender:</label>
-                                                        <select onChange={handleChange}>
-                                                            <option value={formState.Gender}>M</option>
-                                                            <option value={formState.Gender}>F</option>
-                                                            <option value={formState.Gender}>N</option>
-                                                        </select>
-                                                    
-                                                </Form.Field>
-                                            {/* </Form.Group> */}
+                                            <Form.Field>
+                                                <label>Gender:</label>
+                                                <select onChange={handleChange} name="Gender">
 
-                                            {/* <Form.Group inline>
-                                                <label>Gender</label>
-                                                <Form.Field label='F' 
-                                                    control='input' 
-                                                    type='checkbox' 
-                                                    value={formState.Gender}
-                                                    onChange={handleChange} />
-                                                <Form.Field label='M'
-                                                    control='input' 
-                                                    type='checkbox' 
-                                                    value={formState.Gender}
-                                                    onChange={handleChange} />
-                                                <Form.Field label='N' 
-                                                    control='input' 
-                                                    type='checkbox' 
-                                                    value={formState.Gender}
-                                                    onChange={handleChange} />
-                                            </Form.Group> */}
+                                                    <option value="M">M</option>
+                                                    <option value="F">F</option>
+                                                    <option value="N">N</option>
+                                                </select>
+
+                                            </Form.Field>
 
                                             <Message>
                                                 <Message.Header>Seeking:</Message.Header>
@@ -132,8 +112,6 @@ const Signup = () => {
                                                     (choose all that apply: M/F/N/just social interaction)
                                                 </p>
                                             </Message>
-
-
 
 
                                             <Form.Field>
@@ -159,7 +137,7 @@ const Signup = () => {
 
 
                         {error && (
-                            <div className="my-3 p-3 bg-danger text-white">
+                            <div className="err_class">
                                 {error.message}
                             </div>
                         )}

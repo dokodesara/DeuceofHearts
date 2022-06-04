@@ -17,7 +17,7 @@ const Footer = () => {
 
   return (
     
-    <div style={style}>
+    <div style={style.footer}>
 
 
       <div className="ui inverted  grey vertical footer segment">
