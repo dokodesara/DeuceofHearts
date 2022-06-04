@@ -1,5 +1,5 @@
 import React from 'react';
-import {Header,Button, Segment } from 'semantic-ui-react'
+import { Header,Button, Segment } from 'semantic-ui-react'
 
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,6 @@ const Header1 = () => {
   };
   return (
       
-
     <Header className="header_class">
        <Segment clearing>
         <div>
@@ -22,16 +21,11 @@ const Header1 = () => {
       
           <div className="brand_logo ">
            
-            
-              <img className="img_logo" src={logo} width="120" height="120" />
-           
-              
+              <img alt="decorative corner header" className="img_logo" src={logo} width="120" height="120" />
            
             <div><h5>DeuceofHearts</h5></div>
             
             </div>
-        
-       
 
           </Link>
           </Header>
