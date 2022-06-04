@@ -63,7 +63,7 @@ const Signup = () => {
                                     <Segment>
                                         <Form size="small" onSubmit={handleFormSubmit}>
                                             <Message>
-                                                <Message.Header>Rules n regulations</Message.Header>
+                                                <Message.Header>Rules and Regulations</Message.Header>
                                                 <p>
                                                     explicit/overly personal content is for private conversations and boundaries must be maintained. Harassment will not be tolerated
                                                 </p>
@@ -95,35 +95,23 @@ const Signup = () => {
                                                     onChange={handleChange} />
                                             </Form.Field>
 
+                                            <Form.Field>
+                                                <label>Gender:</label>
+                                                <select onChange={handleChange} name="Gender">
 
+                                                    <option value="M">M</option>
+                                                    <option value="F">F</option>
+                                                    <option value="N">N</option>
+                                                </select>
 
-                                            <Form.Group inline>
-                                                <label>Gender</label>
-                                                <Form.Field label='F' 
-                                                    control='input' 
-                                                    type='checkbox' 
-                                                    value={formState.Gender}
-                                                    onChange={handleChange} />
-                                                <Form.Field label='M'
-                                                    control='input' 
-                                                    type='checkbox' 
-                                                    value={formState.Gender}
-                                                    onChange={handleChange} />
-                                                <Form.Field label='N' 
-                                                    control='input' 
-                                                    type='checkbox' 
-                                                    value={formState.Gender}
-                                                    onChange={handleChange} />
+                                            </Form.Field>
 
-                                            </Form.Group>
                                             <Message>
                                                 <Message.Header>Seeking:</Message.Header>
                                                 <p>
                                                     (choose all that apply: M/F/N/just social interaction)
                                                 </p>
                                             </Message>
-
-
 
 
                                             <Form.Field>
