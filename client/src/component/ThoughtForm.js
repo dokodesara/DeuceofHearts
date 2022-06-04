@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_THOUGHT } from '.././utils/mutations';
+import { ADD_THOUGHT } from '../utils/mutations';
 import { QUERY_THOUGHTS, QUERY_ME } from '.././utils/queries';
+import { Form, TextArea } from 'semantic-ui-react'
+
 
 import Auth from '.././utils/auth';
 
@@ -67,46 +69,44 @@ const ThoughtForm = () => {
       {Auth.loggedIn() ? (
         <>
           <p
-            className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
-            }`}
+            className={`m-0 ${characterCount === 280 || error ? 'text-danger' : ''
+              }`}
           >
             Character Count: {characterCount}/280
           </p>
-          <form
-            className="flex-row justify-center justify-space-between-md align-center"
+          <Form
+            class="ui form"
             onSubmit={handleFormSubmit}
           >
-            <div className="col-12 col-lg-9">
-              <textarea
-                name="thoughtText"
-                placeholder="Here's a new thought..."
-                value={thoughtText}
-                className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={handleChange}
-              ></textarea>
-            </div>
 
-            <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Thought
-              </button>
+            <TextArea
+              name="thoughtText"
+              placeholder="Here's a new thought..."
+              value={thoughtText}
+              onChange={handleChange}
+            ></TextArea>
+         
+
+          <div className="div-button">
+            <button className="class_button" type="submit">
+              Add Thought
+            </button>
+          </div>
+          {error && (
+            <div className="div_class">
+              {error.message}
             </div>
-            {error && (
-              <div className="col-12 my-3 bg-danger text-white p-3">
-                {error.message}
-              </div>
-            )}
-          </form>
+          )}
+        </Form>
         </>
-      ) : (
-        <p>
-          You need to be logged in to share your thoughts. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-        </p>
-      )}
-    </div>
+  ) : (
+    <p>
+      You need to be logged in to share your thoughts. Please{' '}
+      <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+    </p>
+  )
+}
+    </div >
   );
 };
 
