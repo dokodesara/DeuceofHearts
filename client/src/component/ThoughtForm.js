@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 import { ADD_THOUGHT } from '../utils/mutations';
-import { QUERY_THOUGHTS, QUERY_ME } from '.././utils/queries';
+import { QUERY_THOUGHTS, QUERY_ME } from '../utils/queries';
 import { Form, TextArea } from 'semantic-ui-react'
 
 
-import Auth from '.././utils/auth';
+import Auth from '../utils/auth';
 
 const ThoughtForm = () => {
   const [thoughtText, setThoughtText] = useState('');
