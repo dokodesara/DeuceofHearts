@@ -46,29 +46,29 @@ const client = new ApolloClient({
 const App = () => {
   return (
     <ApolloProvider client={client}>
-    
-    
+
+
       <Router>
-      <div>
-        <Header/>
-     
-      <Routes>
-        <Route exact path={"/"} element ={<Home/>}/>
-        <Route path={"/login"} element={<Login/>}/>
-        <Route path={"/Signup"} element={<Signup/>}/>
-        <Route path={"/dashboard"} element ={<Dashboard/>}/>
-        <Route path={"/me"} element ={<OnBoarding/>}/>
-        <Route 
-            path='*'
-            element={<h1 className='display-2'>Wrong page!</h1>}
-          />
-            
-       
-      </Routes>
-      
-      </div>
-        
-      <Footer/>  
+        <div>
+          <Header />
+
+          <Routes>
+            <Route exact path={"/"} element={<Home />} />
+            <Route path={"/login"} element={<Login />} />
+            <Route path={"/Signup"} element={<Signup />} />
+            <Route path={"/dashboard"} element={<Dashboard />} />
+            <Route path={"/me"} element={<OnBoarding />} />
+            <Route
+              path='*'
+              element={<h1 className='display-2'>Wrong page!</h1>}
+            />
+
+
+          </Routes>
+
+        </div>
+
+        <Footer />
       </Router>
     </ApolloProvider>
   );

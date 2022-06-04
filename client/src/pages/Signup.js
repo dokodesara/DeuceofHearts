@@ -95,9 +95,19 @@ const Signup = () => {
                                                     onChange={handleChange} />
                                             </Form.Field>
 
+                                            {/* <Form.Group inline> */}
+                                                <Form.Field>
+                                                    <label>Gender:</label>
+                                                        <select onChange={handleChange}>
+                                                            <option value={formState.Gender}>M</option>
+                                                            <option value={formState.Gender}>F</option>
+                                                            <option value={formState.Gender}>N</option>
+                                                        </select>
+                                                    
+                                                </Form.Field>
+                                            {/* </Form.Group> */}
 
-
-                                            <Form.Group inline>
+                                            {/* <Form.Group inline>
                                                 <label>Gender</label>
                                                 <Form.Field label='F' 
                                                     control='input' 
@@ -114,8 +124,8 @@ const Signup = () => {
                                                     type='checkbox' 
                                                     value={formState.Gender}
                                                     onChange={handleChange} />
+                                            </Form.Group> */}
 
-                                            </Form.Group>
                                             <Message>
                                                 <Message.Header>Seeking:</Message.Header>
                                                 <p>
