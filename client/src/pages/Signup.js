@@ -46,7 +46,7 @@ const Signup = () => {
             <div className="col-12 col-lg-10">
                 <div className="card">
                     <Header as="h2" textAlign="center">
-                        Signin
+                        SignUp
                     </Header>
 
                     <div className="card-body">
@@ -61,7 +61,7 @@ const Signup = () => {
                             <Grid centered columns={2}>
                                 <Grid.Column>
                                     <Segment>
-                                        <Form size="large" onSubmit={handleFormSubmit}>
+                                        <Form size="small" onSubmit={handleFormSubmit}>
                                             <Message>
                                                 <Message.Header>Rules n regulations</Message.Header>
                                                 <p>
@@ -149,7 +149,7 @@ const Signup = () => {
 
 
                         {error && (
-                            <div className="my-3 p-3 bg-danger text-white">
+                            <div className="err_class">
                                 {error.message}
                             </div>
                         )}
