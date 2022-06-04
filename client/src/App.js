@@ -27,10 +27,14 @@ const httpLink = createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
+  console.log('token: '+ token)
 
   return {
+    fetchOptions: { mode: "no-cors" },
     headers: {
       ...headers,
+      'Access-Control-Allow-Origin': '*',
+     'Access-Control-Allow-Credentials': true,
       authorization: token ? `Bearer ${token}` : "",
     },
   };
@@ -38,7 +42,6 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  uri: "http://example.com/graphql/",
   cache: new InMemoryCache(),
 });
 

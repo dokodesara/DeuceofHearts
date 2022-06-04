@@ -21,8 +21,8 @@ const userSchema = new Schema({
     //   message: 'Users must be 16 or older'
     // },
     required: true,
+    unique: true,
   },
-  // add checking for age requirement
   Gender: {
     type: String,
     required: true,
@@ -36,6 +36,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
+    unique: true,
     minlength: 5,
   },
   thoughts: [
