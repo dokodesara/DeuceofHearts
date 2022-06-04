@@ -19,7 +19,7 @@ const ThoughtList = ({
             {showTitle && <h3>{title}</h3>}
             {thoughts &&
                 thoughts.map((thought) => (
-                    <div key={thought._id} className="card mb-3">
+                    <div key={thought._id} className="card_comment ">
 
                         <Card.Group>
                             <Card>
