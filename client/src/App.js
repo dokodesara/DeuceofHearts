@@ -18,8 +18,6 @@ import Footer from './component/Footer'
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
-import { setContext } from "@apollo/client/link/context";
-
 
 //getting images through URL constructor which are not in public folder
 //const backGround=new URL("./images/picture2.png",import.meta.url)
