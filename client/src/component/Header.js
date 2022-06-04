@@ -43,9 +43,9 @@ const Header1 = () => {
               <Link className="btn btn-lg btn-info m-2" to="/me">
                 {Auth.getProfile().data.username}'s profile
               </Link>
-              <button basic inverted color='violet' onClick={logout}>
+              <Button basic inverted color='violet' onClick={logout}>
                 Logout
-              </button>
+              </Button>
             </>
           ) : (
             <>
