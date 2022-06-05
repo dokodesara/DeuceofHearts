@@ -40,7 +40,7 @@ const Login = (props) => {
     });
   };
   return (
-    <main className="flex-row justify-center mb-4">
+    <main className="flex-row justify-center mb-3">
       <div className="col-12 col-lg-10">
         <div className="card">
 
@@ -82,7 +82,7 @@ const Login = (props) => {
                       </Form>
                     </Segment>
                     <Message>
-                      Not registered yet? <a href="#">Sign Up</a>
+                      Not registered yet? <a href="/Signup">Sign Up</a>
                     </Message>
                   </Grid.Column>
                 </Grid>

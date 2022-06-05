@@ -1,29 +1,21 @@
 import React from 'react';
-const backGround=new URL("../images/picture1.png",import.meta.url)
+const aroaceFlag = new URL("../images/aroaceflag.png", import.meta.url)
 
 const Home = () => {
-    return(
+    return (
         <>
-          <div className="home-class">
-           <div container="class_backGround">
-              <img src={backGround} width="500" height="650"/>
-         </div>
-     
-     
-         <div className="class_home">
-            
-            <h1>Swipe Right@</h1>
-                            
+            <div className="home-class">
+                <div>
+                    <div container="class_backGround">
+                        <div className="col" id="right">
+                            <h1>Deuce of Hearts</h1>
+                            <h2>a dating and social media platform for asexual and/or aromantic people</h2>
+                        </div>
+                        <img src={aroaceFlag} alt="aro ace flag" id="homeFlag" />
+                    </div>
+                </div>
             </div>
-            
-      
-    </div>
-      
-
-
-
-            </>
+        </>
     )
-
 }
 export default Home
