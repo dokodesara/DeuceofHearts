@@ -13,7 +13,6 @@ const Signup = () => {
         DOB: '',
         Gender: '',
         password: '',
-
     });
     const [addUser, { error, data }] = useMutation(ADD_USER);
 

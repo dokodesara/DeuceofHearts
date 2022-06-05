@@ -69,6 +69,7 @@ h3{
   color:whitesmoke;
 }
 
-
-
-
+#homeFlag {
+justify-content: center;
+margin: 15px;
+}

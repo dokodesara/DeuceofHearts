@@ -50,7 +50,6 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
 
-
       <Router>
         <div>
           <Header />
@@ -65,8 +64,6 @@ const App = () => {
               path='*'
               element={<h1 className='display-2'>Wrong page!</h1>}
             />
-
-
           </Routes>
 
         </div>
