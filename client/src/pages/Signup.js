@@ -105,12 +105,12 @@ const Signup = () => {
 
                                             </Form.Field>
 
-                                            <Message>
+                                            {/* <Message>
                                                 <Message.Header>Seeking:</Message.Header>
                                                 <p>
                                                     (choose all that apply: M/F/N/just social interaction)
                                                 </p>
-                                            </Message>
+                                            </Message> */}
 
 
                                             <Form.Field>

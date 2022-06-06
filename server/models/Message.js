@@ -9,12 +9,12 @@ const messageSchema = new Schema({
     maxlength: 280,
     trim: true,
   },
-  from: {
+  messageAuthor: {
     type: String,
     required: true,
     trim: true,
   },
-  to: {
+  messageFor: {
     type: String,
     required: true,
     trim: true,

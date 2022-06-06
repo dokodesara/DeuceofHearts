@@ -74,19 +74,25 @@ const resolvers = {
         { new: true }
       );
     },
-    addFriend: async (parent, { username, friendId } ) => {
+    addFriend: async (parent, { userId, friendName } ) => {
         return User.findOneAndUpdate(
-            { username },
-            { $addToSet: { friends: friendId } },
+            { _id: userId },
+            { $addToSet: { friends: { friendName } } },
         );
     },
-    //check addFriend for mistakes
-    sendMessage: async (parent, { messageText, to, from }) => {
-      const message = await Message.create({ messageText, to, from });
+    removeFriend: async (parent, { userId, friendId }) => {
+      return User.findOneAndUpdate(
+        { _id: userId },
+        { $pull: { friends: { _id: friendId } } },
+        { new: true }
+      );
+    },
+    sendMessage: async (parent, { messageText, messageAuthor, messageFor }) => {
+      const message = await Message.create({ messageText, messageAuthor, messageFor });
 
       await User.findOneAndUpdate(
-        { username: to },
-        { $addToSet: { messages: message._id },},
+        { username: messageFor },
+        { $addToSet: { messages: message._id } }
       );
 
       return message;

@@ -22,8 +22,7 @@ const typeDefs = gql`
 
   type Friend {
     _id: ID
-    name: String
-    gender: String
+    friendName: String
   }
 
   type Comment {
@@ -36,8 +35,8 @@ const typeDefs = gql`
   type Message {
     _id: ID
     messageText: String
-    from: String
-    to: String
+    messageAuthor: String
+    messageFor: String
     createdAt: String
   }
 
@@ -56,16 +55,20 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, DOB: String!, Gender: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addThought(thoughtText: String!): Thought
+    addThought(thoughtAuthor: String!, thoughtText: String!): Thought
     addComment(
       thoughtId: ID!
       commentText: String!
-   
+      commentAuthor: String!
     ): Thought
     removeThought(thoughtId: ID!): Thought
     removeComment(thoughtId: ID!, commentId: ID!): Thought
-    addFriend(username: String!, friendId: ID!): Auth
-    sendMessage(messageText: String!, to: String!, from: String!): Message   
+    addFriend(
+      userId: ID!
+      friendName: String!
+    ): User
+    removeFriend(userId: ID!, friendId: ID!): User
+    sendMessage(messageText: String!, messageAuthor: String!, messageFor: String!): Message 
   }
 `;
 

@@ -13,8 +13,8 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $DOB: String!, $Gender: String!, $password: String!) {
-    addUser(username: $username, email: $email, DOB: $DOB, Gender: $Gender, password: $password) {
+  mutation AddUser($username: String!, $email: String!, $dob: String!, $gender: String!, $password: String!) {
+    addUser(username: $username, email: $email, DOB: $dob, Gender: $gender, password: $password) {
       token
       user {
         _id
@@ -23,10 +23,18 @@ export const ADD_USER = gql`
     }
   }
 `;
+// mutation AddUser($username: String!, $email: String!, $dob: String!, $gender: String!, $password: String!) {
+//   addUser(username: $username, email: $email, DOB: $dob, Gender: $gender, password: $password) {
+//     token
+//     user {
+//       _id
+//     }
+//   }
+// }
 
 export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
+  mutation addThought($thoughtAuthor: String!, $thoughtText: String!) {
+    addThought(thoughtAuthor: $thoughtAuthor, thoughtText: $thoughtText) {
       _id
       thoughtText
       thoughtAuthor
@@ -40,21 +48,20 @@ export const ADD_THOUGHT = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!,$commentText: String!) {
-    addComment(
-      thoughtId: $thoughtId,
-      commentText: $commentText){
-       _id
-      thoughtText
-      thoughtAuthor
+mutation addComment($thoughtId: ID!, $commentText: String!, $commentAuthor: String!) {
+  addComment(
+    thoughtId: $thoughtId,
+    commentText: $commentText,
+    commentAuthor: $commentAuthor){
+     _id
+    comments {
+      _id
+      commentText
+      commentAuthor
       createdAt
-      comments {
-        _id
-        commentText
-        createdAt
-      }
     }
   }
+}
 `;
 
 export const SEND_MESSAGE = gql`
