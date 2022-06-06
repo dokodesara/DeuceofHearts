@@ -21,7 +21,6 @@ const userSchema = new Schema({
     //   message: 'Users must be 16 or older'
     // },
     required: true,
-    unique: true,
   },
   Gender: {
     type: String,
