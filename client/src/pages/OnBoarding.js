@@ -4,14 +4,14 @@ import { useQuery } from '@apollo/client';
 //import ThoughtList from '../components/ThoughtList';
 import ThoughtForm from '../component/ThoughtForm';
 
-import { QUERY_THOUGHTS } from '../utils/queries';
+import { QUERY_ALL_THOUGHTS } from '../utils/queries';
 
 
 
 
 const OnBoarding = () => {
    
-        const { loading, data } = useQuery(QUERY_THOUGHTS);
+        const { loading, data } = useQuery(QUERY_ALL_THOUGHTS);
         const thoughts = data?.thoughts || [];
       
         return (

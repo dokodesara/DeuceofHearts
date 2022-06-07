@@ -1,3 +1,5 @@
+const mongoose = require ('mongoose');
+
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Thought, Message } = require('../models');
 const { signToken } = require('../utils/auth');
@@ -5,7 +7,7 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('thoughts');
+      return User.find().populate('thoughts').populate('friends');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('thoughts');
@@ -17,6 +19,12 @@ const resolvers = {
     thought: async (parent, { thoughtId }) => {
       return Thought.findOne({ _id: thoughtId });
     },
+    // myComments: async (parent, args, context) => {
+    //   if (context.user) {
+    //     return User.findOne({ _id: context.user._id });
+    //   }
+    //   throw new AuthenticationError('Username or password is incorrect');
+    // },
   },
 
   Mutation: {
@@ -74,11 +82,11 @@ const resolvers = {
         { new: true }
       );
     },
-    addFriend: async (parent, { userId, friendName } ) => {
-        return User.findOneAndUpdate(
-            { _id: userId },
-            { $addToSet: { friends: { friendName } } },
-        );
+    addFriend: async (parent, { friendId }, context) => {
+      return User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $addToSet: { friends: mongoose.Types.ObjectId(friendId) } },
+      );
     },
     removeFriend: async (parent, { userId, friendId }) => {
       return User.findOneAndUpdate(
