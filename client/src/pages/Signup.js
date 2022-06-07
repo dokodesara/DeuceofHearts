@@ -88,7 +88,7 @@ const Signup = () => {
                                             <Form.Field>
                                                 <label>DOB</label>
                                                 <input placeholder='DOB'
-                                                    name="dab"
+                                                    name="dob"
                                                     type="Date"
                                                     value={formState.dob}
                                                     onChange={handleChange} />
