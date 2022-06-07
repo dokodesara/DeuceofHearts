@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 import { ADD_THOUGHT } from '../utils/mutations';
-import { QUERY_ALL_THOUGHTS, QUERY_ME } from '../utils/queries';
+import { QUERY_ALL_THOUGHTS } from '../utils/queries';
 import { Form, TextArea } from 'semantic-ui-react'
 
 
@@ -28,11 +28,11 @@ const ThoughtForm = () => {
       }
 
       // update me object's cache
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
-      });
+      // const { me } = cache.readQuery({ query: QUERY_ME });
+      // cache.writeQuery({
+      //   query: QUERY_ME,
+      //   data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
+      // });
     },
   });
 

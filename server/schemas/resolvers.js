@@ -7,7 +7,7 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('thoughts').populate('friends');
+      return User.find().populate('thoughts').populate('friends').sort({ createdAt: -1 });
     },
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('thoughts');
@@ -19,6 +19,9 @@ const resolvers = {
     thought: async (parent, { thoughtId }) => {
       return Thought.findOne({ _id: thoughtId });
     },
+    me: async (parent, args, context) => {
+      return User.findOne({ _id: context.user._id });
+    }
     // myComments: async (parent, args, context) => {
     //   if (context.user) {
     //     return User.findOne({ _id: context.user._id });

@@ -9,14 +9,14 @@ var style = {
   // left: "0",
   // bottom: "0",
   // height: "120px",
-  // width: "100%",
+  width: "100%",
 };
 
 const Footer = () => {
 
   return (
     
-    <div style={style.footer}>
+    <div style={style}>
 
 
       <div className="ui inverted  grey vertical footer segment">
