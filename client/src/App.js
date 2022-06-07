@@ -12,11 +12,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
-import OnBoarding from './pages/OnBoarding'
+import Discussion from './pages/Discussion'
 import Header from './component/Header'
 import Footer from './component/Footer'
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Profile from './component/Profile'
 
 
 //getting images through URL constructor which are not in public folder
@@ -57,7 +58,8 @@ const App = () => {
             <Route path={"/login"} element={<Login />} />
             <Route path={"/Signup"} element={<Signup />} />
             <Route path={"/dashboard"} element={<Dashboard />} />
-            <Route path={"/discussion"} element={<OnBoarding />} />
+            <Route path={"/discussion"} element={<Discussion />} />
+            <Route path={"/me"} element={<Profile />} />
             <Route
               path='*'
               element={<h1 className='display-2'>Wrong page!</h1>}

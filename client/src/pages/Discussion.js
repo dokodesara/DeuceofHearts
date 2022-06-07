@@ -9,7 +9,7 @@ import { QUERY_ALL_THOUGHTS } from '../utils/queries';
 
 
 
-const OnBoarding = () => {
+const Discussion = () => {
    
         const { loading, data } = useQuery(QUERY_ALL_THOUGHTS);
         const thoughts = data?.thoughts || [];
@@ -37,4 +37,4 @@ const OnBoarding = () => {
         );
       };
       
-     export default OnBoarding
+     export default Discussion
