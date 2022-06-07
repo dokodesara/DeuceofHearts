@@ -22,7 +22,7 @@ import Signup from './pages/Signup';
 //getting images through URL constructor which are not in public folder
 //const backGround=new URL("./images/picture2.png",import.meta.url)
 const httpLink = createHttpLink({
-  uri: "/graphql/",
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -30,18 +30,16 @@ const authLink = setContext((_, { headers }) => {
   console.log('token: '+ token)
 
   return {
-    fetchOptions: { mode: "no-cors" },
     headers: {
       ...headers,
-      'Access-Control-Allow-Origin': '*',
-     'Access-Control-Allow-Credentials': true,
       authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  // link: authLink.concat(httpLink),
+  link: from([errorLink, authLink.concat(httpLink)]),
   cache: new InMemoryCache(),
 });
 

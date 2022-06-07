@@ -1,5 +1,25 @@
 import { gql } from '@apollo/client';
 
+export const ADD_USER = gql`
+  mutation addUser($username: String!, $email: String!, $dob: String!, $gender: String!, $password: String!) {
+    addUser(username: $username, email: $email, DOB: $dob, Gender: $gender, password: $password) {
+      token
+      user {
+        _id
+        username
+      }
+    }
+  }
+`;
+// mutation AddUser($username: String!, $email: String!, $dob: String!, $gender: String!, $password: String!) {
+//   addUser(username: $username, email: $email, DOB: $dob, Gender: $gender, password: $password) {
+//     token
+//     user {
+//       _id
+//     }
+//   }
+// }
+
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -12,21 +32,9 @@ export const LOGIN_USER = gql`
   }
 `;
 
-export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $DOB: String!, $Gender: String!, $password: String!) {
-    addUser(username: $username, email: $email, DOB: $DOB, Gender: $Gender, password: $password) {
-      token
-      user {
-        _id
-        username
-      }
-    }
-  }
-`;
-
 export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
+  mutation addThought($thoughtAuthor: String!, $thoughtText: String!) {
+    addThought(thoughtAuthor: $thoughtAuthor, thoughtText: $thoughtText) {
       _id
       thoughtText
       thoughtAuthor
@@ -40,36 +48,22 @@ export const ADD_THOUGHT = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!,$commentText: String!) {
-    addComment(
-      thoughtId: $thoughtId,
-      commentText: $commentText){
-       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        createdAt
-      }
-    }
-  }
-`;
-
-export const SEND_MESSAGE = gql`
-  mutation sendMessage($messageText: String!, $to: String!, $from: String!) {
-    sendMessage(messageText: $messageText, to: $to, from: $from) {
+mutation addComment($thoughtId: ID!, $commentText: String!, $commentAuthor: String!) {
+  addComment(
+    thoughtId: $thoughtId,
+    commentText: $commentText,
+    commentAuthor: $commentAuthor){
+     _id
+    comments {
       _id
-      messageText
-      to
-      from
+      commentText
+      commentAuthor
       createdAt
     }
   }
+}
 `;
 
-// from here down is probably wrong
 export const REMOVE_THOUGHT = gql`
   mutation removeThought($thoughtId: ID!) {
     removeThought(thoughtId: $thoughtId)
@@ -82,8 +76,26 @@ export const REMOVE_COMMENT = gql`
   }
 `;
 
-/*export const ADD_FRIEND = gql`
-  mutation addFriend($username: String!, $friendId: ID!) {
-    addFriend( ???? )
+export const ADD_FRIEND = gql`
+  mutation addFriend($friendId: ID!) {
+    addFriend(friendId: $friendId)
   }
-`;*/
+`;
+
+export const REMOVE_FRIEND = gql`
+  mutation removeFriend($userId: ID!, $friendId: ID!) {
+    removeFriend(userId: $userId, friendId: $friendId)
+  }
+`;
+
+export const SEND_MESSAGE = gql`
+  mutation sendMessage($messageText: String!, $messageAuthor: String!, $messageFrom: String!) {
+    sendMessage(messageText: $messageText, messageAuthor: $messageAuthor, messageFrom: $messageFrom) {
+      _id
+      messageText
+      to
+      from
+      createdAt
+    }
+  }
+`;
