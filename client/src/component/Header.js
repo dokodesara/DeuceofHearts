@@ -40,6 +40,10 @@ const Header1 = () => {
               <Button inverted color='violet' onClick={logout}>
                 Logout
               </Button>
+              <Link className="btn btn-lg btn-info m-2" to="/discussion">
+                Discussion
+                {/* {Auth.getProfile().data.username}'s profile */}
+              </Link>
             </>
           ) : (
             <>
