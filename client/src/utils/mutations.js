@@ -11,14 +11,6 @@ export const ADD_USER = gql`
     }
   }
 `;
-// mutation AddUser($username: String!, $email: String!, $dob: String!, $gender: String!, $password: String!) {
-//   addUser(username: $username, email: $email, DOB: $dob, Gender: $gender, password: $password) {
-//     token
-//     user {
-//       _id
-//     }
-//   }
-// }
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
