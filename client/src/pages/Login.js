@@ -75,9 +75,9 @@ const Login = (props) => {
                             value={formState.password}
                             onChange={handleChange} />
                         </Form.Field>
-                        <Form.Field>
+                        {/* <Form.Field>
                           <Checkbox label='I agree to the Terms and Conditions' />
-                        </Form.Field>
+                        </Form.Field> */}
                         <Button type='submit'>Submit</Button>
                       </Form>
                     </Segment>

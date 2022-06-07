@@ -27,12 +27,18 @@ const ThoughtForm = () => {
         console.error(e);
       }
 
+      // const { me } = cache.readQuery({ query: QUERY_ME });
+      // cache.writeQuery({
+      //   query: QUERY_ME,
+      //   data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
+      // });
+
       // update me object's cache
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
-      });
+      // const { me } = cache.readQuery({ query: QUERY_ME });
+      // cache.writeQuery({
+      //   query: QUERY_ME,
+      //   data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
+      // });
     },
   });
 

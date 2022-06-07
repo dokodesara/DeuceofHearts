@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-//import ThoughtList from '../components/ThoughtList';
+import ThoughtList from '../component/ThoughtList';
 import ThoughtForm from '../component/ThoughtForm';
 
 import { QUERY_ALL_THOUGHTS } from '../utils/queries';
@@ -27,12 +27,9 @@ const OnBoarding = () => {
                 {loading ? (
                   <div>Loading...</div>
                 ) : (
-                  //<ThoughtList
-                   // thoughts={thoughts}
-                   // title="Some Feed for Thought(s)..."
-
-                 // />
-                 <h1>MY THOUGHTS </h1>
+                  <><ThoughtList
+                      thoughts={thoughts}
+                      title="Some Feed for Thought(s)..." /><h1>MY THOUGHTS </h1></>
                 )}
               </div>
             </div>
