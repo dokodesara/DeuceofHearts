@@ -5,16 +5,21 @@ This project is about creating a dating website for asexual and/or aromantic peo
 # Demo
 
 In Heroku ..
+
 Project Repository link ..
+
 
 # Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development.
 
 Prerequisites
 
-node version 
+node 
 
-npm version 
+npm install
+
+npm run develop
+
 
 
 
@@ -31,7 +36,7 @@ queries and mutations for retrieving, adding, updating, and deleting data.
 
 Authentication (JWT).
 
-# Features
+# Ice box
 
 user browser
 
@@ -60,12 +65,16 @@ notifications
 
 Contributors :
 
-Desara Doko
+Desara Doko 
+
 Prathibha Vadakkini Purakkal
+
 Reese Hartnett
 
 If u have any questions contact :
 
 pasfrad at Github
+
 dokodesara at Github
+
 programer122223 at Github
