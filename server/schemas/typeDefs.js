@@ -7,7 +7,7 @@ const typeDefs = gql`
     DOB: String
     Gender: String
     email: String
-    friends: [Friend]!
+    friends: [User]!
     messages: [Message]!
     thoughts: [Thought]!
   }
@@ -18,11 +18,6 @@ const typeDefs = gql`
     thoughtAuthor: String
     createdAt: String
     comments: [Comment]!
-  }
-
-  type Friend {
-    _id: ID
-    friendName: String
   }
 
   type Comment {
@@ -64,8 +59,7 @@ const typeDefs = gql`
     removeThought(thoughtId: ID!): Thought
     removeComment(thoughtId: ID!, commentId: ID!): Thought
     addFriend(
-      userId: ID!
-      friendName: String!
+      friendId: ID!
     ): User
     removeFriend(userId: ID!, friendId: ID!): User
     sendMessage(messageText: String!, messageAuthor: String!, messageFor: String!): Message 
@@ -73,3 +67,5 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
+
+

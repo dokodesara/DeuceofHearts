@@ -10,8 +10,8 @@ const Signup = () => {
     const [formState, setFormState] = useState({
         username: '',
         email: '',
-        DOB: '',
-        Gender: '',
+        dob: '',
+        gender: '',
         password: '',
     });
     const [addUser, { error, data }] = useMutation(ADD_USER);
@@ -88,15 +88,15 @@ const Signup = () => {
                                             <Form.Field>
                                                 <label>DOB</label>
                                                 <input placeholder='DOB'
-                                                    name="DOB"
+                                                    name="dab"
                                                     type="Date"
-                                                    value={formState.DOB}
+                                                    value={formState.dob}
                                                     onChange={handleChange} />
                                             </Form.Field>
 
                                             <Form.Field>
                                                 <label>Gender:</label>
-                                                <select onChange={handleChange} name="Gender">
+                                                <select onChange={handleChange} name="gender">
 
                                                     <option value="M">M</option>
                                                     <option value="F">F</option>

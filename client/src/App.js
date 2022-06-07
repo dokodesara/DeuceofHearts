@@ -1,13 +1,11 @@
 
 import React from 'react'
-import { onError } from "@apollo/client/link/error";
 
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-  from,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -27,26 +25,13 @@ const httpLink = createHttpLink({
   uri: "/graphql",
 });
 
-const errorLink = onError(({ graphQLErrors, networkError }) => {
-  if (graphQLErrors)
-    graphQLErrors.forEach(({ message, locations, path }) =>
-      console.log(
-        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
-      ),
-    );
-  if (networkError) console.log(`[Network error]: ${networkError}`);
-});
-
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
   console.log('token: '+ token)
 
   return {
-    fetchOptions: { mode: "no-cors" },
     headers: {
       ...headers,
-      'Access-Control-Allow-Origin': '*',
-     'Access-Control-Allow-Credentials': true,
       authorization: token ? `Bearer ${token}` : "",
     },
   };
