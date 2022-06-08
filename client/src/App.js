@@ -17,7 +17,10 @@ import Header from './component/Header'
 import Footer from './component/Footer'
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Profile from './component/Profile'
+import Profile from './pages/Profile'
+import SingleThought from './pages/SingleThought'
+//import MemberList from './component/MemberList'
+
 
 
 //getting images through URL constructor which are not in public folder
@@ -60,6 +63,10 @@ const App = () => {
             <Route path={"/dashboard"} element={<Dashboard />} />
             <Route path={"/discussion"} element={<Discussion />} />
             <Route path={"/me"} element={<Profile />} />
+            <Route 
+                path="/thoughts/:thoughtId" 
+                element={<SingleThought />}
+              />
             <Route
               path='*'
               element={<h1 className='display-2'>Wrong page!</h1>}
