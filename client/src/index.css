@@ -12,7 +12,7 @@
 html,body{
   text-align: center;
   background:lightblue;
-  color:white;
+  color:rgb(231, 80, 80);
   overflow-y: scroll;
   min-height: 200px;
 }
@@ -66,10 +66,30 @@ h1{
 h3{
   margin-top:0;
   padding:10px;
-  color:whitesmoke;
+  color:rgb(242, 35, 35);
 }
 
 #homeFlag {
 justify-content: center;
 margin: 15px;
+}
+.image_class{
+  width:600px;
+  height:800px;
+  float:right;
+}
+.thought_Msg{
+  width:50%;
+}
+
+.my-3{
+  display:flex;
+ flex-direction:column ;
+  align-items: center;
+ width:100%;
+ align-content: space-between;
+}
+.class_Thought{
+  display:flex;
+  flex-direction:columns;
 }

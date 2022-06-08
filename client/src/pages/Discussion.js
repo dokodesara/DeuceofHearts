@@ -13,14 +13,17 @@ const Discussion = () => {
       
         return (
           <main>
-            <div className="flex-row justify-center">
+            <div className="thought_class">
+              <section>
               <div
                 className="col-12 col-md-10 mb-3 p-3"
                 style={{ border: '1px dotted #1a1a1a' }}
               >
                 <ThoughtForm />
               </div>
-              <div className="col-12 col-md-8 mb-3">
+              </section>
+              <sction >
+              <div className="class_thought">
                 {loading ? (
                   <div>Loading...</div>
                 ) : (
@@ -29,6 +32,7 @@ const Discussion = () => {
                       title="Some Food for Thought..." /><h1>MY THOUGHTS </h1></>
                 )}
               </div>
+              </sction>S
             </div>
           </main>
         );
