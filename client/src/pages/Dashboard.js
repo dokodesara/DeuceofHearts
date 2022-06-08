@@ -1,20 +1,15 @@
-// import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-// import { useMutation } from '@apollo/client';
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import Profile from '../component/Profile';
+import UserList from '../component/UserList';
 
-// import { ADD_FRIEND } from '../utils/mutations';
-import { QUERY_USER_FRIENDS } from '../utils/queries';
+import { QUERY_USERS} from '../utils/queries';
 
-//import Auth from '../utils/auth';
 
 const Dashboard = () => {
 
-    const { loading, data } = useQuery(QUERY_USER_FRIENDS);
-    const friends = data?.friends || [];
+    const { loading, data } = useQuery(QUERY_USERS);
+    const users = data?.users || [];
 
     return (
         <main>
@@ -23,9 +18,9 @@ const Dashboard = () => {
                     {loading ? (
                         <div>Loading...</div>
                     ) : (
-                        <><Profile
-                            friends={friends}
-                            title="User Friends" /><h1>USER FRIENDS</h1></>
+                        <><UserList
+                            users={users}
+                            title="View Other Users" /><h1>OTHER USERS</h1></>
                     )}
                 </div>
                 {/* <div

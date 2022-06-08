@@ -22,7 +22,7 @@ const Discussion = () => {
                 <ThoughtForm />
               </div>
               </section>
-              <sction >
+              <section >
               <div className="class_thought">
                 {loading ? (
                   <div>Loading...</div>
@@ -32,7 +32,7 @@ const Discussion = () => {
                       title="Some Food for Thought..." /><h1>MY THOUGHTS </h1></>
                 )}
               </div>
-              </sction>S
+              </section>S
             </div>
           </main>
         );
