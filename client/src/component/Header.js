@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header,Button, Segment } from 'semantic-ui-react'
+import { Header, Button, Segment } from 'semantic-ui-react'
 
 import { Link } from 'react-router-dom';
 
@@ -34,15 +34,18 @@ const Header1 = () => {
         <Header as='h2' floated='right'>
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/me">
+              <Link className="btn btn-md btn-info m-2" to="/me">
                 {Auth.getProfile().data.username}'s profile
               </Link>
               <Button inverted color='violet' onClick={logout}>
                 Logout
               </Button>
-              <Link className="btn btn-lg btn-info m-2" to="/discussion">
+              <Link className="btn btn-md btn-info m-2" to="/discussion">
                 Discussion
-                {/* {Auth.getProfile().data.username}'s profile */}
+              </Link>
+              <br></br>
+              <Link className="btn btn-md btn-info m-2" to="/dashboard">
+                Dashboard
               </Link>
             </>
           ) : (
