@@ -68,6 +68,7 @@ const ThoughtForm = () => {
 
       {Auth.loggedIn() ? (
         <>
+        {/* <p>{placeholder}</p> */}
           <p
             className={`m-0 ${characterCount === 280 || error ? 'text-danger' : ''
               }`}

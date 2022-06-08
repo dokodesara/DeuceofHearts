@@ -13,6 +13,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import Discussion from './pages/Discussion'
+import Comments from './pages/Comments'
 import Header from './component/Header'
 import Footer from './component/Footer'
 import Login from './pages/Login';
@@ -67,6 +68,7 @@ const App = () => {
                 path="/thoughts/:thoughtId" 
                 element={<SingleThought />}
               />
+            <Route path={"/comments"} element={<Comments />} />
             <Route
               path='*'
               element={<h1 className='display-2'>Wrong page!</h1>}
@@ -82,3 +84,14 @@ const App = () => {
 }
 
 export default App;
+
+// export default function App() {
+//   const { data, loading, error } = useQuery(QUERY_USERS);
+//   if (loading) return "Loading...";
+//   if (error) return <pre>{error.message}</pre>
+//   return (
+//     <div>usersList{users}
+//       <h1>All users=</h1>
+//     </div>
+//   );
+// }

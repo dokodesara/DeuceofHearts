@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card } from 'semantic-ui-react'
-
-import { ADD_FRIEND } from '../utils/mutations';
-import { QUERY_USER_FRIENDS } from '../utils/queries';
+import { Card, Button } from 'semantic-ui-react'
 
 const Profile = ({
     users,
@@ -15,34 +12,34 @@ const Profile = ({
         return <h3>No Thoughts Yet</h3>;
     }
 
-    const [addFriend, { error }] = useMutation(ADD_FRIEND, {
-        update(cache, { data: { addFriend } }) {
-            try {
-                const { friends } = cache.readQuery({ query: QUERY_USER_FRIENDS });
+    // const [addFriend, { error }] = useMutation(ADD_FRIEND, {
+    //     update(cache, { data: { addFriend } }) {
+    //         try {
+    //             const { friends } = cache.readQuery({ query: QUERY_USER_FRIENDS });
 
-                cache.writeQuery({
-                    query: QUERY_USER_FRIENDS,
-                    data: { friends: [addFriend, ...friends] },
-                });
-            } catch (e) {
-                console.error(e);
-            }
-        },
-    });
+    //             cache.writeQuery({
+    //                 query: QUERY_USER_FRIENDS,
+    //                 data: { friends: [addFriend, ...friends] },
+    //             });
+    //         } catch (e) {
+    //             console.error(e);
+    //         }
+    //     },
+    // });
 
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
+    // const handleFormSubmit = async (event) => {
+    //     event.preventDefault();
 
-        try {
-            const { data } = await addFriend({
-                variables: {
-                    friendId,
-                },
-            });
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    //     try {
+    //         const { data } = await addFriend({
+    //             variables: {
+    //                 friendId,
+    //             },
+    //         });
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
+    // };
 
     return (
         <div>
@@ -55,21 +52,22 @@ const Profile = ({
                             <Card>
                                 <Card.Content>
                                     <Card.Header>
-                                        {(
+                                        {
                                             <Link
                                                 className="text-light"
-                                                to={`/profiles/${thought.thoughtAuthor}`}
+                                                to={`/profiles/${user._id}`}
                                             >
                                                 {user.username} <br />
                                                 <span style={{ fontSize: '1rem' }}>
                                                     {user.Gender} | {user.DOB}
                                                 </span>
-                                            </Link>)}
+                                            </Link>
+                                            }
                                     </Card.Header>
                                     <Card.Description>
-                                        <p>{thought.thoughtText}</p>
+                                        <p>placeholder</p>
                                     </Card.Description>
-                                    <Button onClick={handleFormSubmit}
+                                    <Button
                                         className="btn btn-primary btn-block btn-squared"
                                         // to={`/thoughts/${thought._id}`}
                                     >

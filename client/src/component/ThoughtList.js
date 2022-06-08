@@ -46,7 +46,8 @@ const ThoughtList = ({
                                     </Card.Description>
                                     <Link
                                         className="btn btn-primary btn-block btn-squared"
-                                        to={`/thoughts/${thought._id}`}
+                                        to={`/comments}`}
+                                        // to={`/thoughts/${thought._id}`}
                                     >
                                         Join the discussion on this thought.
                                     </Link>

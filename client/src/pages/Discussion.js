@@ -6,9 +6,6 @@ import ThoughtForm from '../component/ThoughtForm';
 
 import { QUERY_ALL_THOUGHTS } from '../utils/queries';
 
-
-
-
 const Discussion = () => {
    
         const { loading, data } = useQuery(QUERY_ALL_THOUGHTS);
@@ -32,7 +29,7 @@ const Discussion = () => {
                 ) : (
                   <><ThoughtList
                       thoughts={thoughts}
-                      title="Some Feed for Thought(s)..." /><h1>MY THOUGHTS </h1></>
+                      title="Some Food for Thought..." /><h1>MY THOUGHTS </h1></>
                 )}
               </div>
               </sction>S
