@@ -2,44 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Button } from 'semantic-ui-react'
 
-const Profile = ({
+const UserList = ({
     users,
     title,
     showTitle = true,
-    // showUsername = true,
+    showUsername = true,
 }) => {
     if (!users.length) {
-        return <h3>No Thoughts Yet</h3>;
+        return <h3>No Other Users</h3>;
     }
-
-    // const [addFriend, { error }] = useMutation(ADD_FRIEND, {
-    //     update(cache, { data: { addFriend } }) {
-    //         try {
-    //             const { friends } = cache.readQuery({ query: QUERY_USER_FRIENDS });
-
-    //             cache.writeQuery({
-    //                 query: QUERY_USER_FRIENDS,
-    //                 data: { friends: [addFriend, ...friends] },
-    //             });
-    //         } catch (e) {
-    //             console.error(e);
-    //         }
-    //     },
-    // });
-
-    // const handleFormSubmit = async (event) => {
-    //     event.preventDefault();
-
-    //     try {
-    //         const { data } = await addFriend({
-    //             variables: {
-    //                 friendId,
-    //             },
-    //         });
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
-    // };
 
     return (
         <div>
@@ -54,7 +25,7 @@ const Profile = ({
                                     <Card.Header>
                                         {
                                             <Link
-                                                className="text-light"
+                                                className="text-dark"
                                                 to={`/profiles/${user._id}`}
                                             >
                                                 {user.username} <br />
@@ -65,7 +36,7 @@ const Profile = ({
                                             }
                                     </Card.Header>
                                     <Card.Description>
-                                        <p>placeholder</p>
+                                        <p>About Me:</p>
                                     </Card.Description>
                                     <Button
                                         className="btn btn-primary btn-block btn-squared"
@@ -82,4 +53,4 @@ const Profile = ({
     );
 };
 
-export default Profile;
+export default UserList;

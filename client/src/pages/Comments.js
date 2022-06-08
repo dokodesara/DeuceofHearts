@@ -1,7 +1,7 @@
 import React from 'react';
 
 // import CommentList from '../component/ThoughtList';
-import CommentForm from '../component/ThoughtForm';
+import CommentForm from '../component/CommentForm';
 
 // import { QUERY_ALL_THOUGHTS } from '../utils/queries';
 

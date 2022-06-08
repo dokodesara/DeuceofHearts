@@ -25,7 +25,7 @@ const ThoughtList = ({
                                     <Card.Header>
                                         {showUsername ? (
                                             <Link
-                                                className="text-light"
+                                                className="text-dark"
                                                 to={`/profiles/${thought.thoughtAuthor}`}
                                             >
                                                 {thought.thoughtAuthor} <br />
@@ -46,8 +46,7 @@ const ThoughtList = ({
                                     </Card.Description>
                                     <Link
                                         className="btn btn-primary btn-block btn-squared"
-                                        to={`/comments}`}
-                                        // to={`/thoughts/${thought._id}`}
+                                        to={`/thoughts/${thought._id}`}
                                     >
                                         Join the discussion on this thought.
                                     </Link>
