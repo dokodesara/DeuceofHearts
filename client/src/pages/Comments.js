@@ -1,15 +1,14 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
 
-import ThoughtList from '../component/ThoughtList';
-import ThoughtForm from '../component/ThoughtForm';
+// import CommentList from '../component/ThoughtList';
+import CommentForm from '../component/ThoughtForm';
 
-import { QUERY_ALL_THOUGHTS } from '../utils/queries';
+// import { QUERY_ALL_THOUGHTS } from '../utils/queries';
 
-const Discussion = () => {
+const Comments = () => {
    
-        const { loading, data } = useQuery(QUERY_ALL_THOUGHTS);
-        const thoughts = data?.thoughts || [];
+        // const { loading, data } = useQuery(QUERY_ALL_THOUGHTS);
+        // const thoughts = data?.thoughts || [];
       
         return (
           <main>
@@ -18,20 +17,20 @@ const Discussion = () => {
                 className="col-12 col-md-10 mb-3 p-3"
                 style={{ border: '1px dotted #1a1a1a' }}
               >
-                <ThoughtForm />
+                <CommentForm />
               </div>
-              <div className="col-12 col-md-8 mb-3">
+              {/* <div className="col-12 col-md-8 mb-3">
                 {loading ? (
                   <div>Loading...</div>
                 ) : (
-                  <><ThoughtList
+                  <><CommentList
                       thoughts={thoughts}
                       title="Some Food for Thought..." /><h1>MY THOUGHTS </h1></>
                 )}
-              </div>
+              </div> */}
             </div>
           </main>
         );
       };
       
-     export default Discussion
+     export default Comments
